@@ -212,4 +212,24 @@ Frau Miller hat drei Töchter:
 	 und Kürzen liefert $ n^2 = 2k^2 $. Daher muss wieder $ n $ gerade sein. Also $ n = 2l $ für ein 
 	 $ l \in \mathbb{N} $. $ m = 2k $ und $ n = 2l $ heißt $ 2 $ ist ein gemeinsamer Teiler von $ m $ und $ n $. Widerspruch zur Wahl von $ m $ und $ n $.
 \end{proof}
+\begin{sa}[Division mit Rest]
+	Sei $ a \in \mathbb{Z} $, $ n \in \mathbb{N} $ und $ n \neq 0 $, Dann gibt es eindeutige $ q,r \in \mathbb{Z}, 0 \leq r \leq n $ so dass $ a = qn + r $.
+\end{sa}
+\begin{proof}[Beweis von Existenz]
+	Betrachte die Menge S als
+	\begin{align*}
+		S & = \{ \ldots , a - n , a , a + n , a + 2n , \ldots \} \cap \mathbb{N} \\
+		& = \{ m = a+qn : q \in \mathbb{Z} \} \cap \mathbb{N}
+	\end{align*}
+	Da $ S \subseteq \mathbb{N} $, gibt es ein kleinstes Element $ r $ in $ S $. Es gibt
+	\begin{itemize}
+		\item $ n \geq 0 $
+		\item $ r = a - qn $ für ein $ q \in \mathbb{Z} $ also $ a = qn+r $
+		\item $ r < n $. falls $ r \geq n $ wäre, gilt
+		\[ 
+		a - (q+1)n = \underbrace{a-qn-n}_{\in S} = r-n \geq 0
+		 \]
+		und das ist ein Widerspruch zu der Annahme, die $ r $ als das kleinste Element beurteilt. Weil $ a-qn-n $, ein positives Element der Menge S und kleiner als $ r $ ist. Dann $ r < n $.
+	\end{itemize}
+\end{proof}
 \end{document}
