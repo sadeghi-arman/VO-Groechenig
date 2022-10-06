@@ -140,6 +140,7 @@ Frau Miller hat drei Töchter:
 \end{tcolorbox}
 \newpage
 \section{Zahlentheorie}
+\subsection{Allgemeine Regeln und Fundamentalsätze}
 \begin{definition}[Teilbarkeit]
 	Sei $ n \in \mathbb{Z} $:
 	\begin{enumerate}
@@ -232,4 +233,174 @@ Frau Miller hat drei Töchter:
 		und das ist ein Widerspruch zu der Annahme, die $ r $ als das kleinste Element beurteilt. Weil $ a-qn-n $, ein positives Element der Menge S und kleiner als $ r $ ist. Dann $ r < n $.
 	\end{itemize}
 \end{proof}
+\noindent Die nächste Schritt ist, die Zahlen $ q $ und $ m $ und $ r $ eindeutig bestimmen. \textbf{im Generell wenn man die Eindeutigkeit zeigen will, sollte man zwei Darstellungen annehmen und beweisen, dass sie gleich sind.}
+\begin{proof}[Beweis von Eindeutigkeit]
+	Nehmen wir an, dass 
+	$ a = a_1n + r_1 = a_2n + r_2 $. Dann gilt
+	\[ 
+	r_1 - r_2 = q_2n - q_1n = (q_2 - q_1)n \Rightarrow n|r_1 - r_2
+	 \]
+	und dass bedeutet, dass die Differenz $ r_1 - r_2 $ ist eine der Zahlen
+	$ \{ \ldots , -n , 0 , n , \ldots \} $. aber wir wissen schon von den Eigenschaften eines Restes, dass für beide $ r_1 $ und $ r_2 $ gilt $ 0 \leq r_1 , r_2 < n $. Dann
+	\[ 
+	\left\{
+	\begin{array}{l}
+		0 \leq r_1 < n \\
+		0 \leq r_2 < n 
+	\end{array} 
+	\right. \Rightarrow 0 \leq |r_1 - r_2| < n
+	 \]
+	 von diesen Zahlen ist nur $ 0 $ durch $ n $ teilbar. Daher muss die Differenz $ 0 $ sein. Dann
+	 $ r_1 - r_2 = 0 \Rightarrow r_1 = r_2 $ und auch gilt $ q_1 = q_2 $. wir sind von zwei verschiedenen Darstellungen ausgegangen und habe gezeigt, die sind schon gleich. und daher ist die Darstellung eindeutig.
+\end{proof}
+\begin{bem}
+	Wir haben verwendet Wohlordnung von $ \mathbb{N} $, Rechenregeln und die Ordnung $ \leq $.
+\end{bem}
+\begin{bem}
+	Der Beweis ist Konstruktiv. Wir haben die Existenz des Restes und des Vielfaches konstruiert. Wir haben in die Menge nach den natürlichen Elementen gesucht und die kleinste gefunden.  
+\end{bem}
+\begin{bei*}
+	$ a = 29 $ und $ n = 9 $. Wir werden die Menge $ S $ für $ a $ und $ n $ konstruieren: 
+	\[ 
+	S = \{ \ldots , 29 - 36 , 29 - 27 , 29 - 18 , 29 - 9 , 29 , 29 + 9 , 29 + 18 , \ldots \}
+	 \]
+	Dann $ S \cap \mathbb{N} $ ist:
+	\[ 
+	S \cap \mathbb{N} = \{ 29-27 , 29-18 , 29-9 , 29 , \ldots \}
+	 \]
+	 und das kleinste Element von $ S \cap \mathbb{N} $ ist $ 29 - 27 = 2 $. Dann gehen wir davon aus, dass $ r = 2 $ und
+	 \[ 
+	 r = 2 \Rightarrow 29 - 27 = r \xRightarrow{n = 9} 29 - 3 \cdot n = 2 \Rightarrow \boxed{p = 3, r=2}  
+	  \]
+\end{bei*}
+\subsection{Restklassen}
+\begin{definition}
+	Sei $ n \in \mathbb{N} $, $ n > 1 $ und $ a \in \mathbb{Z} $ beliebig. \textbf{Restklasse} von $ a $ modulo $ n $ ist die Menge
+	\[ 
+	\bar{a} = \{ \ldots , a-n , a , a+n , a+2n, \ldots \} = a + n\mathbb{Z}.
+	 \]
+	Und jede Zahl aus dieser Menge heißt ein \textbf{Repräsentant} der Restklasse $ \overline{a} $
+\end{definition}
+\begin{bem}
+	$ \overline{a + n} = \overline{\vphantom{+}a} $.
+	Meist werden wir die Restklassen mit $ \overline{0} , \overline{1} , \ldots , \overline{n-1} $ zeigen.
+\end{bem}
+\begin{bei*}
+	$ n = 3 $: 
+	\[ 
+	\overline{0} = \{ -9 , -6 , -3 , 0 ,3 , 6 , 9 , ... \}
+	 \]
+\end{bei*}
+\begin{bem}
+	F\"ur $ r = 0,1,\ldots , n-1 $ ist $ \overline{r} $ die Menge der ganzen Zahlen, die nach Division durch $ n $, den Rest $ r $ ergibt.
+\end{bem}
+\begin{bei*}
+	$\overline{a\vphantom{+}} = \overline{a+n} = \overline{a+ pn} $.
+\end{bei*}
+\begin{bem}
+	Sei $ p,q \in \mathbb{Z} $, $ 0 \leq r < n $ und $ a = pn+r $ und $ b = qn+r $, dann gilt 
+	\[ 
+	a - b = pn - qm = n(p-q) \Rightarrow n | p-q
+	 \]
+	und $ \overline{\vphantom{b}a} = \overline{b} $.
+\end{bem}
+\begin{definition}
+	$ a \equiv b \mod n $. $ a $ ist \textbf{kongruent modulo} $ \mathbf{n} $ wenn $ n | a-b $.
+\end{definition}
+\begin{lem}
+	$ a,b,n \in \mathbb{Z} $, $ n > 1 $. es gilt dann 
+	\[ 
+	\overline{\vphantom{b}a} = \overline{b} \iff a \equiv b \mod n
+	 \]
+\end{lem}
+\begin{bem}
+	Wenn wir eine Aussage wie $ p \iff q $ beweisen wollen, m\"ussen wir zeigen, dass $ p $ und 
+	$ q $ \"aquivalent sind. Daher sollte man sowohl $ p \to q $ als auch $ q \to p $ beweisen.
+\end{bem}
+\begin{bem}
+	$ \overline{a} $ ist eine \textbf{Menge}. Es ist die Menge von Repr\"asentanten der Restklasse $ \overline{a} $.
+\end{bem}
+\begin{proof}
+	\begin{proof}[\textbf{Voraussetzung: $ \overline{\vphantom{b}a} = \overline{b} $ 
+			$ \Rightarrow $ Folgerung: $ a \equiv b \mod n $}] \let\qed\relax
+		Sei $ \overline{\vphantom{b}a} \equiv \overline{b} $ dann ist $ b \in \overline{a} $ ($ b $ ist ein Element von $ \overline{a} $) und das hei\ss t
+		\( 
+		\exists q \in \mathbb{Z} \,\, \text{so dass} \,\, b = a + qr
+		\)
+		und das hei\ss t
+		\[ 
+		b - a = qn \Rightarrow n | a-b \Rightarrow a \equiv b \mod n
+		 \]
+	\end{proof}
+	\begin{proof}[\textbf{Voraussetzung:} $ a \equiv b \mod n $ $ \Rightarrow $ \textbf{Folgerung:} $ \overline{\vphantom{b}a} = \overline{b} $]\let\qed\relax
+		Um zu beweisen, dass zwei Mengen gleich sind, muss man zwei Aussagen beweisen. Erstens, die Aussage, dass ein beliebiges Element von der Menge $ a $, ist auch ein Element in $ b $ und zweitens die Aussage, dass ein beliebiges Element von $ b $ auch ein Element von der Menge $ a $ ist. Daher beweisen wir zuerst, dass ein beliebiges Element von $ \overline{b} $ namens $ b $ ist auch ein Element von der Menge $ \overline{a} $: \\
+		$ a \equiv b \mod n $ und das hei\ss t $ n | a-b $ und es gibt $ q \in \mathbb{Z} $ so dass 
+		$ b - a = qn $. dann $ b = nq+a $ und daher ist die Zahl $ b $ ein Element von $ \overline{a} $. Beliebiges Element in $ \overline{b} $ hat die Form $ b + pn = a + qn + pn = a + (q+p)n $. dann gilt
+		\[ 
+		b + pn = a + (p+q)n \Rightarrow b + pn \in \overline{\vphantom{b}a} \Rightarrow \overline{b} \subseteq \overline{\vphantom{b}a}.
+		 \]
+	\end{proof}
+\noindent Vertauschen von $ a $ und $ b $ liefert, dass $ \overline{\vphantom{b}a} \subseteq \overline{b} $. Daher 
+$ \overline{\vphantom{b}a} = \overline{b} $
+\end{proof}
+\begin{sa} Eigenschaften von Kongruenzen sind: \\
+	\begin{tabular}{rll}
+		1. &  $ a \equiv a \mod n $ & (Identit\"at) \\
+		2. &  Wenn $ a \equiv b \mod n $ dann $ b \equiv a \mod n $ & (Symmetrie) \\
+		3. &  Wenn $ a \equiv b \mod n $ und $ b \equiv c \mod n $ dann ist $ a \equiv c \mod n $ & (Transitivit\"at)
+	\end{tabular}
+\end{sa}
+\begin{proof}[Beweis von 1]
+	$ n | \underbrace{a-a}_{=0} $ also $ a \equiv a \mod n $. 
+\end{proof}
+\begin{proof}[Beweis von 2] 
+	$ a \equiv b \mod n $ hei\ss t, dass $ n | a-b $. Daher gibt es eine Zahl $ q \in \mathbb{Z} $ so dass $ a - b = nq $. Dann gilt
+	\begin{align*}
+		b - a & = -nq = (-q)n \\
+		& \Rightarrow n | b-1 \\
+		& \Rightarrow \boxed{b \equiv a \mod n}
+	\end{align*}
+\end{proof}
+\begin{proof}[Beweis von 3]
+	\[ 
+	\begin{array}{ll}
+		a \equiv b \mod n \Rightarrow n | a-b \\
+		b \equiv c \mod n \Rightarrow n | b-c
+	\end{array}.
+	 \]
+	 Wir wissen schon, wenn $ n $ zwei Zahlen teilt, teilt es auch die Summe. Daher
+	 \begin{align*}
+	 	n | (a-b) + (b-c) & \Rightarrow n | a-c \\
+	 	& \Rightarrow a \equiv c \mod n
+	 \end{align*}
+\end{proof}
+\begin{sa}[Addieren und Multiplizieren von Restklassen]
+	$ a,b,n \in \mathbb{Z}, n>1 $
+	\begin{itemize}
+		\item $ \overline{\vphantom{b}a} + \overline{b} = \overline{a+b} $
+		\item $ \overline{\vphantom{b}a} \cdot \overline{b} = \overline{ab} $
+	\end{itemize}
+\end{sa}
+\begin{bei*}
+	$ n=3 $
+	\[ 
+	\begin{array}{rlrll}
+		\bar{1} & + & \bar{2} & = \bar{3} & = \bar{0} \\
+		+ 2 \cdot n\downarrow & & + 2 \cdot n \downarrow & & \\
+		\bar{7} & + & \bar{5} & = \overline{12} & = \bar{0} 
+	\end{array}
+	 \]
+\end{bei*}
+
+
+
+
+
+
+
+
+
+
+
+
 \end{document}
