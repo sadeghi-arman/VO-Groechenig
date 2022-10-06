@@ -333,11 +333,11 @@ Frau Miller hat drei Töchter:
 		 \]
 	\end{proof}
 	\begin{proof}[\textbf{Voraussetzung:} $ a \equiv b \mod n $ $ \Rightarrow $ \textbf{Folgerung:} $ \overline{\vphantom{b}a} = \overline{b} $]\let\qed\relax
-		Um zu beweisen, dass zwei Mengen gleich sind, muss man zwei Aussagen beweisen. Erstens, die Aussage, dass ein beliebiges Element von der Menge $ a $, ist auch ein Element in $ b $ und zweitens die Aussage, dass ein beliebiges Element von $ b $ auch ein Element von der Menge $ a $ ist. Daher beweisen wir zuerst, dass ein beliebiges Element von $ \overline{b} $ namens $ b $ ist auch ein Element von der Menge $ \overline{a} $: \\
+		Um zu beweisen, dass zwei Mengen gleich sind, muss man zwei Aussagen beweisen. Erstens, die Aussage, dass ein beliebiges Element von der Menge $ a $, auch ein Element in $ b $ ist und zweitens die Aussage, dass ein beliebiges Element von $ b $ auch ein Element von der Menge $ a $ ist. Daher beweisen wir zuerst, dass ein beliebiges Element von $ \overline{b} $ namens $ b $ ist auch ein Element von der Menge $ \overline{a} $: \\
 		$ a \equiv b \mod n $ und das hei\ss t $ n | a-b $ und es gibt $ q \in \mathbb{Z} $ so dass 
-		$ b - a = qn $. dann $ b = nq+a $ und daher ist die Zahl $ b $ ein Element von $ \overline{a} $. Beliebiges Element in $ \overline{b} $ hat die Form $ b + pn = a + qn + pn = a + (q+p)n $. dann gilt
+		$ b - a = qn $. dann $ b = nq+a $ und daher ist die Zahl $ b $ ein Element von $ \overline{a} $. Beliebiges Element in $ \overline{b} $ hat die Form $ b + pn $. dann gilt
 		\[ 
-		b + pn = a + (p+q)n \Rightarrow b + pn \in \overline{\vphantom{b}a} \Rightarrow \overline{b} \subseteq \overline{\vphantom{b}a}.
+		b + pn = a + qn + pn =  a + (p+q)n \Rightarrow b + pn \in \overline{\vphantom{b}a} \Rightarrow \overline{b} \subseteq \overline{\vphantom{b}a}.
 		 \]
 	\end{proof}
 \noindent Vertauschen von $ a $ und $ b $ liefert, dass $ \overline{\vphantom{b}a} \subseteq \overline{b} $. Daher 
