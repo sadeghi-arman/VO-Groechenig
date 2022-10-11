@@ -3,7 +3,7 @@
 \usepackage{listings}
 \usepackage{hyperref}
 \usepackage[most]{tcolorbox}
-\usepackage{amsmath,amsthm,amssymb,mathtools,fancyhdr,dialogue}
+\usepackage{amsmath,amsthm,amssymb,mathtools,fancyhdr,dialogue,tikz}
 \usepackage[right=3.75cm,left=3.75cm,top=4cm,bottom=4cm]{geometry}
 
 \renewcommand*{\proofname}{Beweis}
@@ -17,6 +17,7 @@
 \newtheorem{sa}[definition]{Satz}
 \newtheorem{lem}[definition]{Lemma}
 
+\renewcommand{\figurename}{Abb.}
 
 \setcounter{section}{-1}
 
@@ -391,6 +392,152 @@ $ \overline{\vphantom{b}a} = \overline{b} $
 	\end{array}
 	 \]
 \end{bei*}
+\begin{bei*}
+	Betrachten wir ein gleichseitiges Dreieck in der Ebene und alle seine sogenannten Deckabbildungen. Darunter versteht man Abbildungen, die das Dreieck auf sich selbst abbilden und seine Form 	und Gr\"o\ss e nicht ver\"andern. Es gibt sechs verschiedene davon. Einige davon sind in Abbildung hierunter dargestellt.
+\end{bei*}
+\begin{figure}[h]
+	\centering
+	\begin{tikzpicture}[scale=1]
+		\coordinate [label=below:$1$] (A0) at (-4cm,-1.cm);
+		\coordinate [label=above:$3$] (B0) at (-3cm, 1.0cm);
+		\coordinate [label=below:$2$] (C0) at (-2cm,-1.0cm);
+		\draw 
+		(A0) -- 
+		(B0) -- 
+		(C0) -- 
+		(A0);
+		\coordinate [label=below:$3$] (A) at (-1cm,-1.cm);
+		\coordinate [label=above:$2$] (B) at (0cm,1.0cm);
+		\coordinate [label=below:$1$] (C) at (1cm,-1.0cm);
+		\draw 
+		(A) -- 
+		(B) -- 
+		(C) -- 
+		node[below=6pt] {$ D_1 $}
+		(A);
+		\coordinate [label=below:$3$] (A') at (2cm,-1.cm);
+		\coordinate [label=above:$2$] (B') at (3cm,1.0cm);
+		\coordinate [label=below:$1$] (C') at (4cm,-1.0cm);
+		\draw 
+		(A') -- 
+		(B') -- 
+		(C') -- 
+		node[below=6pt] {$ D_2 $}
+		(A');
+	\end{tikzpicture} \\
+	\begin{tikzpicture}[scale=1]
+	\coordinate [label=below:$1$] (A0) at (-4cm,-1.cm);
+	\coordinate [label=above:$3$] (B0) at (-3cm, 1.0cm);
+	\coordinate [label=below:$2$] (C0) at (-2cm,-1.0cm);
+	\draw 
+	(A0) -- 
+	(B0) -- 
+	(C0) -- 
+	(A0);
+	\coordinate [label=below:$1$] (A) at (-1cm,-1.cm);
+	\coordinate [label=above:$2$] (B) at (0cm,1.0cm);
+	\coordinate [label=below:$3$] (C) at (1cm,-1.0cm);
+	\draw 
+	(A) -- 
+	(B) -- 
+	(C) -- 
+	node[below=6pt] {$ S_1 $}
+	(A);
+	\coordinate [label=below:$3$] (A') at (2cm,-1.cm);
+	\coordinate [label=above:$1$] (B') at (3cm,1.0cm);
+	\coordinate [label=below:$2$] (C') at (4cm,-1.0cm);
+	\draw 
+	(A') -- 
+	(B') -- 
+	(C') -- 
+	node[below=6pt] {$ S_2 $}
+	(A');
+	\coordinate [label=below:$2$] (A'') at (5cm,-1.cm);
+	\coordinate [label=above:$3$] (B'') at (6cm,1.0cm);
+	\coordinate [label=below:$1$] (C'') at (7cm,-1.0cm);
+	\draw 
+	(A'') -- 
+	(B'') -- 
+	(C'') -- 
+	node[below=6pt] {$ S_3 $}
+	(A'');
+	\end{tikzpicture}
+	\caption{Deckabbildungen des gleichseitigen Dreiecks}
+\end{figure}
+\begin{enumerate}
+	\item 
+	Die Identit\"at $ id $
+	\item Drehung um $ \frac{2}{3}\pi $ ($ 120^{\circ} $) im Uhrzeigesinn $ D_1 $.
+	\item Drehung um $ \frac{4}{3}\pi $ $ (240^\circ) $ im Uhrzeigesinn $ D_2 $.
+	\item Spiegelung $ S_1 $ auf $ 1 $.
+	\item Spiegelung $ S_2 $ auf $ 2 $.
+	\item Spiegelung $ S_3 $ auf $ 3 $.
+\end{enumerate}
+Die Menge dieser Abbildungen bildet eine Gruppe bez\"uglich der Verkn\"upfung von Abbildungen. Man kann die Wirkung der Abbildung am einfachsten veranschaulichen, indem man beobachtet, wohin die Eckpunkte abgebildet werden. ie dabei entstehende Gruppe heißt $ \mathfrak{S}^3 $ (\textbf{Symmetrische Gruppe auf drei Elementen}). Man kann auch die Wirkung von den Permutationen so zeigen:
+\[ 
+D_1 = 
+\left(
+\begin{array}{ccc}
+	1 & 2 & 3 \\
+	\downarrow & \downarrow & \downarrow \\
+	3 & 1 & 2
+\end{array} 
+\right)\stackrel{\text{Schreibweise}}{=} \begin{pmatrix}
+	3 & 1 & 2
+\end{pmatrix}
+\quad
+D_2 = 
+\left(
+\begin{array}{ccc}
+	1 & 2 & 3 \\
+	\downarrow & \downarrow & \downarrow \\
+	2 & 3 & 1
+\end{array} 
+\right)\stackrel{\text{Schreibweise}}{=} \begin{pmatrix}
+	2 & 3 & 1
+\end{pmatrix}
+ \]
+\[ 
+S_1 = 
+\left(
+\begin{array}{ccc}
+	1 & 2 & 3 \\
+	\downarrow & \downarrow & \downarrow \\
+	1 & 3 & 2
+\end{array} 
+\right)\stackrel{\text{Schreibweise}}{=} \begin{pmatrix}
+	1 & 3 & 2
+\end{pmatrix}
+\quad
+S_2 = 
+\left(
+\begin{array}{ccc}
+	1 & 2 & 3 \\
+	\downarrow & \downarrow & \downarrow \\
+	3 & 2 & 1
+\end{array} 
+\right)\stackrel{\text{Schreibweise}}{=} \begin{pmatrix}
+	3 & 2 & 1
+\end{pmatrix}
+\]
+\[ 
+S_3 = 
+\left(
+\begin{array}{ccc}
+	1 & 2 & 3 \\
+	\downarrow & \downarrow & \downarrow \\
+	2 & 1 & 3
+\end{array} 
+\right)\stackrel{\text{Schreibweise}}{=} \begin{pmatrix}
+	2 & 1 & 3
+\end{pmatrix}
+\]
+\begin{bei*}[Beispiele von Verkn\"upfungen von Permutationen]
+	
+\end{bei*}
+
+
+
 
 
 
