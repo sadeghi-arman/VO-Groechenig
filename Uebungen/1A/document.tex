@@ -1,0 +1,224 @@
+\documentclass{article}
+\usepackage[usenames,dvipsnames]{color,xcolor}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{amsmath,amsthm,amssymb,mathtools,fancyhdr,tcolorbox}
+\usepackage[right=3.75cm,left=3.75cm,top=4cm,bottom=4cm]{geometry}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem{ub}{Aufgabe}
+\newtheorem*{lo*}{Lösung}
+
+\begin{document}
+
+\thispagestyle{plain}
+\begin{minipage}{5cm}
+	\includegraphics[width=5cm]{logo}\\
+	\centering
+	Fakultät für Mathematik
+\end{minipage}
+\hfill
+\begin{minipage}{7cm}
+	\baselineskip=.4cm
+	Arman Sadeghi Rad\\
+	Matrikelnummer 12223560 \\
+	Einführung in das mathematische Arbeiten \\
+	Wintersemester 2022/2023
+\end{minipage}\\[1mm]
+\hrule height2pt \vskip1mm
+\noindent
+Übungsblatt 1A
+\hrule height2pt \vskip1mm
+\begin{ub}
+	Formuliere die Verneinung der gegebenen Aussage:
+	\begin{enumerate}
+		\item Alle Babies sind niedlich.
+		\item Zwei Personen im Raum haben heute Geburtstag.
+		\item Alle Anwesenden sprechen Deutsch oder Englisch.
+	\end{enumerate}
+\end{ub}
+\begin{tcolorbox}
+	\begin{lo*}
+		\begin{enumerate}
+			\item Es gibt ein Baby, dass nicht neidlich ist.
+			\item Es gibt nur eine Person im Raum, die heute Geburtstag hast, oder es gibt keine.
+			\item[2'.] Es gibt maximal eine Person im Raum, die heute Geburtstag hast.
+			\item Anwesenden können weder Deutsch noch Englisch sprechen.
+		\end{enumerate}
+	\end{lo*}
+\end{tcolorbox}
+\begin{ub}
+	Schreibe mithilfe des Summenzeichens:
+	\begin{enumerate}
+		\item $ 1 + 2 + 3 + 4 + 5 + \ldots + n $
+		\item $ 1 + 2^{-1} + 2^{-2} + 2^{-3} + \ldots + 2^{-n} $
+		\item $ 1-2+3-\ldots 9 -10 $	
+	\end{enumerate}
+\end{ub}
+\begin{tcolorbox}
+	\begin{lo*}
+		\begin{enumerate}
+			\item $ \sum_{i=1}^{n} i $ 
+			\item $ \sum_{i=0}^{n} 2^{-i} $
+			\item $ \sum_{i=1}^{10} i(-1)^{i+1} $
+		\end{enumerate}
+	\end{lo*}
+\end{tcolorbox}
+\begin{ub}
+	Verwende Summen- und Produktschreibweise, um das Folgende darzustellen:
+	\begin{enumerate}
+		\item Die Summe der ersten 100 geraden natürlichen Zahlen.
+		\item Das Produkt der ersten 100 natürlichen Zahlen, die durch 3 teilbar sind.
+	\end{enumerate}
+\end{ub}
+	\begin{tcolorbox}
+		\begin{lo*}
+			\begin{enumerate}
+				\item $ \sum_{i=1}^{50} 2 \cdot i $
+				\item $ \prod_{i=1}^{33} 3 \cdot i $
+			\end{enumerate}
+		\end{lo*}
+	\end{tcolorbox}
+\begin{ub}
+	Sei
+	$ A = 
+	\begin{pmatrix}
+		1 & 2 & 3 \\
+		4 & 5 & 6 \\
+		7 & 8 & 9
+	\end{pmatrix} = 
+	\begin{pmatrix}
+		a_{11} & a_{12} & a_{13} \\
+		a_{21} & a_{22} & a_{23} \\
+		a_{31} & a_{32} & a_{33}
+	\end{pmatrix}
+	 $
+	 und sei $ \delta_{i,j} $ das Kronecker-Symbol. Berechne:
+	 \begin{enumerate}
+	 	\item $\sum_{i,j = 1}^{3} \delta_{i,j}a_{ij} $ 
+	 	\item $ \sum_{i,j = 1}^{3} \delta_{i,j+1} a_{ij} $
+	 	\item $ \sum_{i,j = 1}^{3} \delta_{i+1,j} a_{ij} $
+ 		\end{enumerate}
+\end{ub}
+\begin{tcolorbox}
+	\begin{lo*}
+		Kronecker-Symbol ist eine mathematische Funktion die das Wert 1 bei der Gleichheit der Indizes $ i $ und $ j $ annimmt und sonst den Wert $ 0 $ hat. Das kann man so zeigen:
+		\[ 
+		\delta_{i,j} = \left\{
+		\begin{array}{ll}
+			1 & \text{falls } i = j \\
+			0 & \text{falls } i \neq j
+		\end{array}
+		\right.
+		 \]
+		\begin{enumerate}
+			\item 
+			\begin{align*}
+				\sum_{i,j = 1}^{3} \delta_{i,j}a_{ij} = & 
+				1 \cdot a_{11} + 1 \cdot a_(22) + 1 \cdot a_{33} \\[-3mm]
+				+ & 0 \cdot a_{12} + 0 \cdot a_{13} + 0 \cdot a_{21} + 0 \cdot a_{23} +
+				0 \cdot a_{31} + 0 \cdot a_{32} \\
+				= & a_{11} + a_{22} + a_{33} = 1 + 5+ 9 = 15
+			\end{align*}
+			\item 
+			In ähnlicher Weise sollten wir die Matrixelemente, die dem Term $ i = j+1 $ entsprechen, in die Summe einbeziehen:
+			\begin{align*}
+				 \sum_{i,j = 1}^{3} \delta_{i,j+1} a_{ij} = a_{21} + a_{32} = 4 + 8 = 12
+			\end{align*}
+			\item 
+			\begin{align*}
+				\sum_{i,j = 1}^{3} \delta_{i+1,j} a_{ij} = a_{12} + a_{23} = 2 + 6 = 8
+			\end{align*}
+		\end{enumerate}
+	\end{lo*}
+\end{tcolorbox}
+\newpage
+\begin{ub}
+	Zeige, dass für alle $ n  \in \mathbb{N} $ gilt:
+	\[ 
+	\sum_{k=0}^{n} (2 \cdot k +1) = (n+1)^2.
+	 \]
+\end{ub}
+\begin{tcolorbox}
+	\begin{lo*}
+		Erstens: beweisen wir, dass das für den Fall $ n = 1 $ gilt:
+		\begin{align*}
+			\sum_{k=0}^{1} (2 \cdot k + 1) & = 2 \cdot 0 + 1 + 2 \cdot 1 + 1 \\
+			& = 4 = (1 + 1)^2
+		\end{align*}
+		Zweitens: Nehmen wir an, dass dies für den Fall $ n $ gilt, und prüfen wir, ob es richtig ist:
+		\begin{align*}
+			\sum_{k=0}^{n+1} (2\cdot k +1) & = \sum_{k=0}^{n} (2 \cdot k + 1) + (2 \cdot (n+1) + 1) \\
+			& = \underbrace{(n + 1)^2}_{t^2} + (2 \cdot \underbrace{(n+1)}_{t} + 1)  \\
+			& = t^2 + 2t + 1 = (t+1)^2 = ((n+1) + 1)^2
+		\end{align*}
+		Damit ist die Aussage für alle $ n \geq 1 $ bewiesen. \hfill $ \square $
+	\end{lo*}
+\end{tcolorbox}
+\newpage
+\begin{ub}
+	Sei $ x \in \mathbb{R} $  mit $ x > -1 $ und  $ n \in \mathbb{N} $. Zeige, dass gilt:
+	\[ 
+	1 + n \cdot x \leq (1+x)^n
+	 \]
+\end{ub}
+\begin{tcolorbox}
+	\begin{lo*}
+		\begin{proof}[Induktionsanfang]
+			Der Induktionsanfang ergibt sich unmittelbar:
+			\[ 
+			1 + x \leq (1 + x)^1
+			 \]
+		\end{proof}
+		\begin{proof}[Induktionsbehauptung]\renewcommand{\qedsymbol}{}
+			Aus der Voraussetzung
+			\[ 
+			1 + nx \leq (1+x)^n
+			 \]
+			 sollten wir beweisen, dass:
+			\[ 
+			1 + (n+1)x \leq (1+x)^{n+1}
+			 \]\noindent
+		\end{proof}
+		\begin{proof}[Induktionsschritt]
+			\begin{align*}
+				1 + (n+1)x \leq (1+x)^{n+1} & \iff 1 + nx + x \leq (1+x)^n(1+x) \\
+				& \iff \underbrace{\vphantom{(}1 + nx}_{P} + \underbrace{\vphantom{()} x}_{R} \leq \underbrace{(1+x)^n}_{Q} + \underbrace{x(1+x)^n}_{S}
+			\end{align*}
+		$ 1 + nx \leq (1+x)^n $ is die Voraussetzung, deswegen richtig. Nun sollten wir nur beweisen, dass $ x \leq x(1+x)^{n} $ richtig ist. Dies gelingt folgendermaßen:
+		\[ 
+		\left\{
+		\begin{array}{ll}
+			x > -1 \Rightarrow (1+x)^n > 0 \\
+			x \geq x
+		\end{array} \Rightarrow x(1+x)^n \geq x
+		\right.
+		 \]
+		Dann ist die Aussage für alle $ n \geq 1 $ bewiesen.
+		\end{proof}
+	\end{lo*}
+\end{tcolorbox}
+\newpage
+\begin{ub}
+	 Welche der folgenden Aussagen sind richtig, welche davon sind falsch? Gibt es
+	Aussagen die eine falsche oder unpräzise Annahme haben? Begründen Sie Ihre Antwort.
+\end{ub}
+\begin{tcolorbox}
+	\begin{lo*}
+		\begin{enumerate}
+			\item Falsch. Zwischen $ 1 $ und $ 2 $ gibt es keine natürliche Zahl. Im Allgemeinen zwischen zwei aufeinanderfolgenden Zahlen, gibt es keine andere natürliche Zahl.
+			\item 
+			Richtig.
+			\item 
+			Falsch. in den Spannungen wie $ (n,m) \quad n \neq m $ gibt es kein kleinstes Element.
+			\item Richtig.
+			\item Richtig.
+			\item Richtig.
+			\item Falsch. Die Aussage "\textit{Die ersten drei rationalen Zahlen}" ist bedeutungslos, weil die Menge von rationalen Zahlen unzählig ist. 
+			\item Richtig.
+			\item Falsch. Die Aussage umfasst die Behauptung, dass die Menge der reelle Zahlen ein Ende hat.  
+		\end{enumerate}
+	\end{lo*}
+\end{tcolorbox}
+\end{document}

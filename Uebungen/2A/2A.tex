@@ -1,0 +1,220 @@
+\documentclass{article}
+\usepackage[usenames,dvipsnames]{color,xcolor}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{amsmath,amsthm,amssymb,mathtools,fancyhdr,tcolorbox,cancel}
+\usepackage[right=3.75cm,left=3.75cm,top=4cm,bottom=4cm]{geometry}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem{ub}{Aufgabe}
+\newtheorem*{lo*}{Lösung}
+
+\begin{document}
+	
+	\thispagestyle{plain}
+	\begin{minipage}{5cm}
+		\includegraphics[width=5cm]{logo}\\
+		\centering
+		Fakultät für Mathematik
+	\end{minipage}
+	\hfill
+	\begin{minipage}{7cm}
+		\baselineskip=.4cm
+		Arman Sadeghi Rad\\
+		Matrikelnummer 12223560 \\
+		Einführung in das mathematische Arbeiten \\
+		Wintersemester 2022/2023
+	\end{minipage}\\[1mm]
+	\hrule height2pt \vskip1mm
+	\noindent
+	Übungsblatt 2A
+	\hrule height2pt \vskip1mm
+\begin{ub}\[  \]
+	\begin{enumerate}
+		\item 	\begin{tabular}{|c|c|c|c|}
+			\hline
+			$ p $ & $ q $ & $ (p \Rightarrow q) = (\neg p \lor q) $ & $ (\neg q \Rightarrow \neg p) = (q \lor \neg p) $ \\
+			\hline
+			$ T $ & $ T $ & $ T $ & $ T $ \\
+			\hline
+			$ T $ & $ F $ & $ F $ & $ F $ \\
+			\hline
+			$ F $ & $ F $ & $ T $ & $ T $ \\
+			\hline
+			$ F $ & $ T $ & $ T $ & $ T $ \\
+			\hline
+		\end{tabular}
+		\item 	\begin{tabular}{|c|c|c|c|}
+			\hline
+			$ p $ & $ \neg (\neg p) $ & $ p $ \\
+			\hline
+			$ T $ & $ \neg(\neg T) = \neg F = T $ & $ T $ \\
+			\hline
+			$ F $ & $ \neg(\neg F) = \neg T = F $ & $ F $ \\
+			\hline
+		\end{tabular}
+	\end{enumerate}
+\end{ub}
+\begin{ub}
+	\begin{enumerate}
+		\item $ \neg p \lor q $ ist das \"Aquivalent f\"ur $ p \Rightarrow q $ und $ p \lor \neg q $ ist das \"Aquivalent f\"ur $ \neg p \Rightarrow \neg q $. Und $ \neg p \lor q \neq p \lor \neg q $.
+		\item 
+		\[ 
+		\left\{
+		\begin{array}{l}
+			\neg (p \Rightarrow q) = \neg (\neg p \lor q) = p \land \neg q \\
+			\neg p \Rightarrow \neg q  = \neg(\neg p) \lor \neg q = p \lor \neg q
+		\end{array} \implies p \lor \neg q \neq p \land \neg q \implies \neg (p \Rightarrow q) \neq \neg p \Rightarrow \neg q
+		\right.
+		 \] 
+	\end{enumerate}
+\end{ub}
+\begin{ub}
+	\begin{enumerate}
+		\item 
+		\begin{align*}
+			(\neg p \lor q) \land (q \Rightarrow r) & = (\neg p \lor q) \land (\neg q \lor r) \\
+			& = ((\neg p \lor q) \land \neg q) \lor ((\neg p \lor q) \land r) \\
+			& = ((\cancelto{F}{\neg q \land q}) \lor (\neg q \land \neg p)) \lor ((\neg p \land r) \lor (q \land r)) \\
+			& = (\neg q \land \neg p) \lor (\neg p \land r) \lor (q \land r) 
+		\end{align*}
+		Dann gilt
+		\begin{align*}
+			((\neg p \lor q) \land (q \Rightarrow r) \Rightarrow (p \Rightarrow q)) & = (((\neg q \land \neg p) \lor (\neg p \land r) \lor (q \land r) ) \Rightarrow (p \Rightarrow q)) \\
+			& = \neg ((\neg q \land \neg p) \lor (\neg p \land r) \lor (q \land r)) \lor (\neg p \lor q) \\
+			& = ((q \lor p) \land (p \lor \neg r) \land (\neg q \lor \neg r)) \lor (\neg p \lor q) \\
+		\end{align*}
+		Wir nennen dieser Satz $ P $ und dessen Wahrheitstabelle ist
+		\[ 
+		\begin{array}{|c|c|c|c|}
+			\hline 
+			p & q & r & P \\ \hline
+			T & T & T & T \\ \hline
+			T & T & F & T \\ \hline
+			T & F & T & T \\ \hline
+			T & F & F & T \\ \hline
+			F & T & T & T \\ \hline
+			F & T & F & T \\ \hline
+			F & F & T & T \\ \hline
+			F & F & F & T \\ \hline
+		\end{array}
+		 \]
+		Daher ist $ P $ eine Tautologie.
+		\item 
+			\begin{align*}
+			(r \Rightarrow p) \land \neg p & = (\neg r \lor p) \land \neg p \\
+			& = (\neg p \land \neg r) \lor (\cancelto{F}{\neg p \land p}) \\
+			& = \neg p \land \neg r
+		\end{align*}
+		Dann gilt
+		\begin{align*}
+			((r \Rightarrow p) \land \neg p) \Rightarrow \neg r & = 
+			(\neg (\neg p \land \neg r)) \lor \neg r \\
+			& = p \lor r \lor \neg r \\
+			& = p \lor T = T
+		\end{align*}
+		Daher ist dieser Satz eine Tautologie.
+		\item 
+		\begin{align*}
+			q \lor (q \Rightarrow p) & = q \lor (\neg q \lor p) \\
+			& = (q \lor \neg q) \lor p \\
+			& = T \lor p = T
+		\end{align*}
+		Dann gilt
+		\begin{align*}
+			(q \lor (q \Rightarrow p)) \Rightarrow p & = (T \Rightarrow p) \\
+			& = p
+		\end{align*}
+		Daher ist dieser Satz, weder eine Tautologie, noch eine Kontradiktion.
+	\end{enumerate}
+\end{ub}
+\begin{ub}
+	\begin{enumerate}
+		\item $ Q(16) $ ist wahr. Weil $ 4^2 = 16 $ aber $ Q(17) $ ist falsch, Weil es keine nat\"urliche Zahl gibt, die die Quadratwurzel von $ 17 $ ist. Daher $ Q(16) = T $ und $ Q(17) = F $. Dann gilt
+		$ Q(16) \land \neg Q(17) = T \land \neg F = F $.
+		\item 
+		Diese Aussage ist falsch. Es gibt ein Gegenbeispiel. Nehmen wir an, dass $ n = 1 $ und $ m =4 $. Dann $ Q(1) $ und $ Q(4) $ sind wahr, Denn $ 1 = 1^2 $ und $ 4 = 2^2 $. Aber $ Q(1 + 4) = Q(5) $ ist falsch. Denn $ 5 $ keine nat\"urliche Quadratwurzel hat.
+		\item 
+		Die Aussage ist wahr. nehmen wir an, dass $ \sqrt{m} = k $ und $ \sqrt{n} = l $. Dann $ \sqrt{m\cdot n} = \sqrt{m} \sqrt{n} $ und wenn eine von $ \sqrt{m} $ und $ \sqrt{n} $ nicht eine nat\"urliche Zahl ist, dann ist auch $ \sqrt{mn} $ keine nat\"urliche Zahl. Und wenn beide nat\"urlich sind, wird $ \sqrt{mn} $ auch eine nat\"urliche Zahl. Daher ist die Aussage wahr.
+	\end{enumerate}
+\end{ub}
+\begin{ub}
+	Wenn $ n < l $, dann ist die beiden Seiten $ 0 $ und die Aussage ist wahr. Nehmen wir an, dass $ n \geq l $. Wir verwenden Induktion so, dass der Induktionsanfang der Fall $ n = l $ ist. 
+	\[ 
+	n = l \Rightarrow \sum\limits_{k=l}^{n = l} {k \choose l} = {l \choose l} = 1 = {l + 1 \choose l + 1}
+	 \]
+	Wir behaupten, dass sind Aussage für den Fall $ n $ wahr ist. Dann ermittlen wir, ob die Aussage auch f\"ur den Fall $ n + 1$ wahr ist.
+	\begin{align*}
+		\sum\limits_{k=l}^{n+1} {k \choose l} & = \sum\limits_{k=l}^n {k \choose l} + {n+1 \choose l} \\
+		& = {n+1 \choose l+1} + {n + 1 \choose l} \\
+		& = {n+2 \choose l+1}
+	\end{align*} \hfill$ \square $
+ \end{ub}
+\begin{ub}
+	\begin{enumerate}
+		\item \[ 
+		\prod\limits_{k=1}^n [ k \cdot (k+1) ] = [1 \cdot 2 \cdots n]\cdot[(1+l)\cdots (2 + l)
+		\cdots (n + l)]
+		 \]
+		\item 
+		Da $ l \geq 1 $ fixiert ist, k\"onnen wir die vollst\"antige Induktion durch $ n $ vorantrieben. 
+		\begin{proof}[Induktionsanfang]
+			\[ 
+			\prod\limits_{k=1}^1 [ k \cdot (k+l) ] = 1 \cdot (1 + l) = 1 + l = \frac{1! \cdot (1+l)!}{l!} = \frac{\cancel{1} \cdot \cancel{1} \cdot \cancel{2} \cdots \cancel{l} \cdot (1+l)}{\cancel{1} \cdot \cancel{2} \cdots \cancel{l}} 	
+			 \]
+		\end{proof}
+		\begin{proof}[Induktionsschritt]
+			\begin{align*}
+				\prod\limits_{k=1}^{n+1} [ k \cdot (k+l) ] & = \left( \prod\limits_{k=1}^{n} [ k \cdot (k+l) ] \right) \cdot (n+1)\cdot(n+1+l) \\
+				& = \frac{n! \cdot (n+l)!}{l!} \cdot (n+1)\cdot (n+1+l) \\
+				& = \frac{n!\cdot (n+1) \cdot (n+l)!\cdot (n+1+l)}{l!} \\
+				& = \frac{(n+1)! \cdot (n+1+l)!}{l!}
+			\end{align*}
+		\end{proof}
+	\end{enumerate}
+\end{ub}
+\begin{ub}
+	\begin{enumerate}
+		\item 
+		\begin{align*}
+			(\neg p \land (q \lor p)) \land r & = ((\neg p \land q) \lor \cancelto{F}{(\neg p \land p)}) \land r \\
+			& = (\cancelto{\neg p \land q}{(\neg p \land q) \lor F}) \land r \\
+			& = \neg p \land q \land r 
+		\end{align*}
+		\begin{align*}
+			(q \land r) \lor p & = (p \lor q) \land (p \lor r) \neq \neg p \land q \land r \\
+		\end{align*}
+		\[ 	\begin{array}{|c|c|c|c|c|}
+			\hline
+			p & q & r & \neg p \land q \land r & (q \land r) \lor p \\
+			T & T & T & F & T \\
+			T & T & F & F & T \\
+			T & F & T & F & T \\
+			T & F & F & F & T \\
+			F & T & T & T & T \\
+			F & T & F & F & F \\
+			F & F & T & F & F \\
+			F & F & F & F & F \\ \hline
+		\end{array} \]
+		Daher ist die Gleichung falsch.
+		\item 
+		\begin{align*}
+			(\neg p \land \neg q \land r) \lor (\neg p \land \neg q \land \neg r) & = \\ 
+			& (\neg p \lor (\neg p \land \neg q \land r)) \land (\neg q \lor (\neg p \land \neg q \land r)) \\ & \land (\neg r \lor (\neg p \land \neg q \land r)) \\
+			& = \\
+			& ({\color{red}(\neg p \lor \neg q)} \land (\cancelto{\neg p}{\neg p \lor \neg p}) \land (\neg p \lor r)) \\
+			& \land (\cancel{{\color{red}(\neg q \lor \neg p)}} \land (\cancelto{\neg q}{\neg q \lor \neg q}) \land (\neg q \lor r)) \\
+			& \land ((\neg r \lor \neg p) \land (\neg r \lor \neg q) \land (\cancelto{T}{\neg r \lor r})) 
+		\end{align*}
+	Da es eine $ \neg p $ Aussage gibt, enthält die Aussage
+	\[ 
+	p \land (\neg p \land \neg q \land r) \lor (\neg p \land \neg q \land \neg r)
+	 \]
+	eine $ p \land \neg p = F $ Aussage. Da die Aussagen mit $ \land $ verkn\"upft sind und eine der Aussagen eine Kontradikition ist, wird die ganze Aussage falsch. Daher ist die in Frage kommenden Aussage, die eine Negierung von der oben genannten Aussage ist, eine Tautologie. Dann gilt
+	\[ 
+	\neg (p \land (\neg p \land \neg q \land r) \lor (\neg p \land \neg q \land \neg r)) = \mathbf{1}.
+	 \]
+	\end{enumerate}
+\end{ub}
+\end{document}
