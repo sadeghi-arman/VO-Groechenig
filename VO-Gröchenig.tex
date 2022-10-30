@@ -392,8 +392,143 @@ $ \overline{\vphantom{b}a} = \overline{b} $
 	\end{array}
 	 \]
 \end{bei*}
+\begin{lem}
+	$ + $ und $ \cdot $ sind \textbf{wohldefiniert}. Dass hei\ss t, Die Definition von $ + $ und $ \cdot $ h\"angt nicht von dem Repre\"asentation ab.
+\end{lem}
+\begin{proof}[Beweis f\"ur $ + $]
+	Seien $ a $ und $ a' $ zwei Repr\"asentationen von $ \bar{a} $ und $ b,b' \in \bar{b} $ zwei Repr\"asentationen von $ \bar{b} $. Dann $ a' = a + qn $ und $ b' = b + pn $ wenn $ p,q \in \mathbb{Z} $. Dann gilt
+	\[ 
+	a' + b' = a + b + (p+q)n \Rightarrow a'+b' \in \overline{a+b} \Rightarrow \bar{a'} + \bar{b'} = \overline{a'+b'}
+	= \overline{a+b} = \bar{a} + \bar{b}
+	 \]
+\end{proof}
+\begin{tcolorbox}[colback={white}, colframe={DarkGreen},breakable]
+	\begin{proof}[Beweis f\"ur $ \cdot $]
+		{
+			\color{blue}
+			\[ 
+			a' \cdot b' = (a + qn)\cdot(b + pn) = a \cdot b + apn + bqn + pqn^2 = a\cdot b + n(ap + bq + pqn) \in \overline{a \cdot b}
+			\]	
+		}
+	\end{proof}
+\end{tcolorbox}
+\newpage
+\section{Algebraische Strukturen (Gruppen, Ringe und K\"orper)}
+\begin{definition}
+	Verkn\"upfung auf einer Menge $ S $ ordnet jedem Paar $ a,b  \in S $ ein Element $ a \cdot b \in S $ zu. In Sprache der Mengenlehre das hei\ss t
+	\[ 
+	S \times S \to S
+	 \]
+\end{definition}
+\begin{definition}
+	Sei $ G $ eine nicht leere Menge mit einer Verkn\"upfung $ \cdot : G \times G \to G $. Angenommen es gilten folgenden Rechenregeln:
+	\begin{enumerate}
+		\item
+		\[ 
+		\forall a,b \in G \quad (a \cdot b) \cdot c = a \cdot (b \cdot c) \quad \text{(Assoziativit\"at)}
+		 \]
+		\item 
+		Es gibt ein Element $ e \in G $ (\textbf{neutrales Element}) so dass f\"ur jede $ a \in G $ gilt $ a \cdot e = e \cdot a = a $.
+		\item 
+		F\"ur jedes Element $ a $ in $ G $ gibt es $ a' \in G $ (\textbf{ein inverses} von $ a $) so dass 
+		$ a \cdot a' = a' \cdot a = e $.
+	\end{enumerate}
+	Das hei\ss t, dass $ (G , \cdot) $ eine \textbf{Gruppe} ist. falls $ \forall a,b \in G $ die Aussage $ a \cdot b = b \cdot a $ gilt, hei\ss t $ G $ eine \textbf{abelische} oder eine \textbf{kommutative} Gruppe.
+\end{definition}
 \begin{bei*}
-	Betrachten wir ein gleichseitiges Dreieck in der Ebene und alle seine sogenannten Deckabbildungen. Darunter versteht man Abbildungen, die das Dreieck auf sich selbst abbilden und seine Form 	und Gr\"o\ss e nicht ver\"andern. Es gibt sechs verschiedene davon. Einige davon sind in Abbildung hierunter dargestellt.
+	$ (\mathbb{Z} , +) $ und $ (\mathbb{R} , +) $ sind abelische Gruppen mit neutralem Element $ 0 $. und f\"ur jedes Element, das inverses Element ist $ -a $.
+\end{bei*}
+\begin{bei*}
+	$ (\mathbb{R}\setminus \{0\} , \cdot) $ ist eine abelische Gruppe mit $ e=1 $ und $ a^{-1} = \frac{1}{a} $.
+\end{bei*}
+\begin{bem}
+	$ (\mathbb{N} , +) $, $ (\mathbb{Z} , \cdot), (\mathbb{R}, \cdot) $ sind keine Gruppen. weil
+	\begin{itemize}
+		\item Au\ss er $ 0 $ besitzt kein Element von $ \mathbb{N} $, ein Inverses. 
+		\item Au\ss er $ 1 $ besitzt kein Element von $ \mathbb{Z} $, ein Inverses.
+		\item In $ (\mathbb{R} , \cdot) $ besitzt $ 0 $ kein Inverses.
+	\end{itemize}
+\end{bem}
+\begin{lem}
+	Sei $ (G , \cdot) $ eine Gruppe
+	\begin{enumerate}
+		\item Dann ist das neutrale Element eindeutig bestimmt. 
+		\item Zu jedem $ a $ in der Gruppe gibt es genau ein Inverses Element.
+	\end{enumerate}
+\end{lem}
+\begin{proof}[Beweis von 1]
+	Seien $ e $ und $ e' $ neutrale Elemente in $ G $. Dann gilt
+	\[ 
+	e' = e' \cdot e = e \cdot e' = e
+	 \]
+\end{proof}
+\begin{proof}[Beweis von 2]
+	$ a \in G $ und $ a',a" \in G $ beide invers zu $ a $. dann gilt
+	\[ 
+	a' = a' \cdot e = \underbrace{a' \cdot (a \cdot a'') = (a' \cdot a) \cdot a''}_{\text{(Assoziativit\"at)}} = a''
+	 \]
+\end{proof}
+\begin{bem}
+	Wenn die Gruppe ein Verhalten wie eine Additionsgruppe, z.B $ (\mathbb{Z} , +) $ hat, dann bezeichnen wir das inverses Element als $ -a $.
+\end{bem}
+\begin{bei*}
+	Sei $ n \in \mathbb{N} $, $ n > 1 $ und sei $ \mathbb{Z}_n = \{ \bar{0}, \bar{1}, \bar{2}, \ldots , \overline{n-2}, \overline{n-1} \} $ die Menge der \textbf{Resklassen modulo} $ \mathbf{n} $ mit Addition als Verkn\"upfung. Dann ist $ \mathbb{Z}_n $ eine abelische Gruppe.
+\end{bei*}
+\begin{proof}
+	Seien $ \bar{a}$, $\bar{b}$, $\bar{c} \in \mathbb{Z}_n$,
+	\begin{itemize}
+		\item (Assoziativit\"at): 
+		\[ 
+		(\overline{a} + \overline{b}) + \overline{c} = (\overline{a + b}) + \overline{c}
+		= \overline{(a + b) + c}
+		 \]
+		schon ist die Assoziativit\"at unter der Menge der ganzen Zahlen vorhanden. Daher kann man 
+		$ \overline{(a + b) + c} $ als $ \overline{a + (b + c)} $ umschreiben und noch mal, 
+		\[ 
+		\overline{a + (b + c)} = \overline{a} + \overline{b+c} = \bar{a} + (\bar{b} + \bar{c})
+		 \]
+		\item 
+		Das neutrale Element ist $ 0 $. weil
+		\[ 
+		\overline{a} + \overline{0} = \overline{a+0} = \overline{a}
+		 \]
+		\item 
+		Das inverse Element f\"ur das beliebige Element $ a $ ist $ n-a $ oder $ -a $. weil
+		\[ 
+		\overline{a} + \overline{n-a} = \overline{a + n -a} = \overline{n} = \overline{0}
+		 \]
+	\end{itemize} 
+\end{proof}
+\begin{bei*}[Verkn\"upfungstabelle der Gruppe $ \mathbb{Z}_5 $]
+	\[ 
+	\begin{array}{c|ccccc}
+		+ & \bar{0} & \bar{1} & \bar{2} & \bar{3} & \bar{4} \\\hline \noalign{\vskip1mm}
+  \bar{0} & \bar{0} & \bar{1} & \bar{2} & \bar{3} & \bar{4} \\ 
+  \bar{1} & \bar{1} & \bar{2} & \bar{3} & \bar{4} & \bar{0} \\
+  \bar{2} & \bar{2} & \bar{3} & \bar{4} & \bar{0} & \bar{1} \\
+  \bar{3} & \bar{3} & \bar{4} & \bar{0} & \bar{1} & \bar{2} \\
+  \bar{4} & \bar{4} & \bar{0} & \bar{1} & \bar{2} & \bar{3} \\
+	\end{array}
+	 \]
+\end{bei*}
+\begin{bem}
+	Wenn die Tabelle symmetrisch bez\"uglich Diagonale ist, dann ist die Gruppe eine abelische Gruppe. weil f\"ur $ a {+}{(\cdot)} b $, $ b {+}{(\cdot)} a $ dessen Spiegelung durch die Diagonale entspricht. 
+\end{bem}
+\begin{bei*}[Kleinsche Vierergruppe]
+	$ V_4 = \{ e,f,g,h \} $:
+	\[ 
+	\begin{array}{c|cccc}
+		& e & f & g & h \\ \hline
+	e	& e & f & g & h \\
+	f	& f & e & h & g \\
+	g	& g & h & e & f \\
+	h	& h & g & f & e	
+	\end{array}
+	 \]
+	ist eine Gruppe mit neutralem Element $ e $ und f\"ur jedes Element $ x $ in $ V_4 $, ist das Inverses, das Element selbst. weil $ x\cdot x = e $.
+\end{bei*}
+\begin{bei*}
+	Betrachten wir ein gleichseitiges Dreieck in der Ebene und alle seine sogenannten Deckabbildungen  in der Abbildung \ref{Abb1}. Darunter versteht man Abbildungen, die das Dreieck auf sich selbst abbilden und seine Form 	und Gr\"o\ss e nicht ver\"andern. Es gibt sechs verschiedene davon. Einige davon sind in Abbildung hierunter dargestellt.
 \end{bei*}
 \begin{figure}[h]
 	\centering
@@ -463,6 +598,7 @@ $ \overline{\vphantom{b}a} = \overline{b} $
 	(A'');
 	\end{tikzpicture}
 	\caption{Deckabbildungen des gleichseitigen Dreiecks}
+	\label{Abb1}
 \end{figure}
 \begin{enumerate}
 	\item 
