@@ -51,7 +51,7 @@
 	 \]
 	und in der Resklasse von $ m $
 	\[ 
-	abp\frac{1}{\ggt{a}{m}} \equiv b \mod m \tag{2}\label{2}
+	abp\frac{1}{\ggt{a}{m}} \equiv b \mod m \tag{2}\label{2}.
 	 \]
 	F\"ur die Gleichungen \ref{1} und \ref{2} in der Restklasse von $ m $, gelten auch $ p + km $ wenn $ k \in \mathbb{Z} $. aber wenn 
 	$ k = \ggt{a}{m} $ dann gilt
@@ -61,5 +61,61 @@
 	 \]
 	Daher gibt es nur $ \ggt{a}{m} $ L\"osungen die mod $ m $ inkongruent sind.
 \end{ub}
-
+\begin{ub}
+	Wir m\"ussen die Elementen bestimmen die Einheite sind. Daf\"ur sollte man die Elementen wie $ x $ ausw\"ahlen, die wenn $ R = \mathbb{Z}_n $, $ \ggt{x}{n} = 1 $.
+	\[ 
+	\begin{array}{l}
+		\mathbb{Z}_4 : \{ \bar{1}, \bar{3} \} \\
+		\mathbb{Z}_7 : \{ \bar{1}, \bar{2}, \bar{3}, \bar{4}, \bar{5}, \bar{6} \} \\
+		\mathbb{Z}_8 : \{ \bar{1}, \bar{3}, \bar{5}, \bar{7} \} \\
+		\mathbb{Z}_9 : \{ \bar{1}, \bar{2}, \bar{4}, \bar{5}, \bar{7}, \bar{8} \}
+	\end{array}
+	 \]	
+\end{ub}
+\begin{ub}
+	$ p_1 = 5, a_1 = 4 $, $ p_2 = 7, a_2 = 6 $, $ p_3 = 9, a_3 = 8 $. Daher $ p_1p_2p_3 = 315 $.
+	\[ 
+	\begin{array}{lrl}
+		\ggt{\frac{p_1p_2p_3}{p_1} = 63}{p_1 = 5} = 1 & 2 \cdot 63 - 25 \cdot 5 = 1
+		& \Rightarrow a_1M_1N_1 = 504 \\
+		\ggt{\frac{p_1p_2p_3}{p_2} = 45}{p_2 = 7} = 1 & -2 \cdot 45 + 13 \cdot 7 = 1
+		& \Rightarrow a_2M_2N_2 = -540 \\
+		\ggt{\frac{p_1p_2p_3}{p_3} = 35}{p_3 = 9} = 1 & -1 \cdot 35 + 4 \cdot 9 = 1
+		& \Rightarrow a_3M_3N_3 = -280
+	\end{array}
+	 \]
+	 Daher ist die L\"osung $ x = -316 \equiv -1 \mod 315 $. Aber die Besonderheit der Reste ist die Tatsache, dass alle der Kongruenzen, den Rest $ -1 $ haben. Daher das System von Kongruenzen k\"onnte durch $ x \equiv -1 \mod 5 \cdot 7 \cdot 9 $ abgek\"urzt werden. Durch die L\"osung auch wird dieselbe Zahl ergibt. $ x \equiv -1 \equiv -316 \mod 315 $
+\end{ub}
+\begin{ub}
+	\[ 
+	\begin{array}{lllll}
+		7x \equiv \hphantom{1}8 \,{\color{red} \equiv \hphantom{-}28 } & \mod 20 & \Rightarrow & x \equiv \hphantom{-}4 & \mod 20 \\
+		5x \equiv \hphantom{1}6 \,{\color{red} \equiv -15 } & \mod 21 & \Rightarrow & x \equiv -3 & \mod 21 \\
+		9x \equiv 13 \,{\color{red} \equiv \hphantom{-}36 } & \mod 23 & \Rightarrow & x \equiv \hphantom{-}4 & \mod 23
+	\end{array}
+	 \]
+	Es ist gen\"ugend, nur das System f\"ur $ x \equiv -3 \mod 21 $ und $ x \equiv 4 \mod 460 $ zu l\"osen.
+	\[ 
+	10 \cdot 460 - 219 \cdot 21 = 1 \Rightarrow x = -3 \cdot 10 \cdot 460 - 4 \cdot 219 \cdot 21 = -31196
+	\equiv 7444 \mod 20 \cdot 20 \cdot 23
+	 \]
+\end{ub}
+\begin{ub}
+	\textbf{mod} $ 2 $:
+	\[ n \equiv b_0 + (b_1 + b_2 + \cdots + b_k) \cdot \bar{1} \mod 2 \]
+	\textbf{mod} $ 7 $: Hierf\"ur sollte man erstens $ b_i $ Zahlen in 6-Gruppen einteilen und die Zahlen davon paarweise wie $ (b_i - b_{i+3}) + (b_{i+1} - b_{i+4}) + (b_{i+2} - b_{i+5}) $ umformulieren. Weil 
+	\[ 
+	\begin{array}{cccccccccccccc}
+		1 & \xRightarrow[]{\times 3} & 3 & \xRightarrow[]{\times 3} & 2 & \xRightarrow[]{\times 3}
+		  & -1 & \xRightarrow[]{\times 3} & -3 & \xRightarrow[]{\times 3} & -2 & \mod 7 \\
+		b_1 && b_23 && b_33^2 && b_43^3 && b_53^4 && b_63^5 &
+	\end{array}
+	 \]
+	Wenn die Summe nach dem Einteilen und der Rest von der triadischen Entwicklung durch 7 teilbar ist, dann wird auch die Zahl durch 7 teilbar. \\
+	\textbf{mod} $ 9 $:
+	\[ 
+	n \equiv b_0 + b_13 \mod 9
+	 \]
+	Weil die andere S\"atze schon durch $ 9 $ teilbar sind.
+\end{ub}
 \end{document}
